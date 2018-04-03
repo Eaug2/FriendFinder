@@ -31,12 +31,15 @@ module.exports = function(app){
 		for(var i = 0; i < friends.length; i++){
 			console.log(friends[i].name);
             totalDifference = 0;
-            console.log(totalDifference);
+            // console.log(totalDifference);
 
            
 			for(var j = 0; j < 10; j++){
 				totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
-				if (totalDifference <= bestMatch.friendDifference){
+                console.log(totalDifference);
+                console.log(userScores[j]);
+                console.log(friends[i].scores[j]);
+                if (totalDifference <= bestMatch.friendDifference){
 					// Reset the bestMatch to be the new friend. 
 					bestMatch.name = friends[i].name;
 					bestMatch.photo = friends[i].photo;
