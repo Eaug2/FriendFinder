@@ -27,13 +27,13 @@ module.exports = function(app){
 		var userScores = userData.scores;
 
 		var totalDifference = 0;
-
+        // cycles through friends api
 		for(var i = 0; i < friends.length; i++){
 			console.log(friends[i].name);
             totalDifference = 0;
             // console.log(totalDifference);
 
-           
+           //chooses friend who is closest in score to the user and best option is set as best match
 			for(var j = 0; j < 10; j++){
 				totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
                 console.log(totalDifference);
@@ -48,11 +48,14 @@ module.exports = function(app){
                 
             }
             console.log(totalDifference);
-		}
+        }
+        //pushes userdata to api
         friends.push(userData);
         console.log(userData);
         console.log("--------------");
+        // used for displaying best match
         res.json(bestMatch);
+        console.log(res);
         console.log(bestMatch);
 	});
 };
